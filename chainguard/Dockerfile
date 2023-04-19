@@ -7,7 +7,7 @@ COPY pom.xml pom.xml
 COPY src src
 RUN --mount=target=$HOME/.m2,type=cache mvn install
 
-FROM repo.mycorp.com:5001/cg-jre:20230414
+FROM repo.mycorp.com:5001/cg-jre:20230418
 COPY --from=build /webapp/target/*.jar /webapp.jar
 EXPOSE 8080
 CMD ["-jar", "/webapp.jar"]
